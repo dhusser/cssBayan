@@ -52,7 +52,6 @@ html::-webkit-scrollbar {
 
 .mem__title {
   width: 100%;
-  /* padding: min(max(1.25vw, 8px), 24px); */
   font-size: min(max(2.18vw, 20px), 42px);
   transition: .4s;
   background-size: min(max(2.18vw, 20px), 42px) min(max(2.18vw, 20px), 42px);
@@ -116,6 +115,10 @@ html::-webkit-scrollbar {
 
 @media (min-width: 1920px) {
   .mems:hover {
+    cursor: pointer;
+  }
+
+  .mem:hover {
     cursor: pointer;
   }
 
