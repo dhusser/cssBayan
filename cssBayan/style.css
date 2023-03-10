@@ -1,7 +1,15 @@
 * {
   margin: 0;
   box-sizing: border-box;
+}
 
+html {
+  overflow: auto;
+}
+
+html::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
 .body {
@@ -44,7 +52,7 @@
 
 .mem__title {
   width: 100%;
-  padding: min(max(1.25vw, 8px), 24px);
+  /* padding: min(max(1.25vw, 8px), 24px); */
   font-size: min(max(2.18vw, 20px), 42px);
   transition: .4s;
   background-size: min(max(2.18vw, 20px), 42px) min(max(2.18vw, 20px), 42px);
@@ -72,7 +80,7 @@
   flex-flow: column nowrap;
   align-items: center;
   height: 0;
-  transition: all .4s ease-out;
+  transition: all 1s ease-out;
   overflow: hidden;
   opacity: 0;
   border: dotted 12px #FFFFFF;
@@ -86,7 +94,7 @@
 .active:checked~.mem__description {
   height: min(max(42.18vw, 100%), 810px);
   opacity: 1;
-  transition: all .5s ease-in;
+  transition: all 1.5s ease-in;
 }
 
 .mem__phrase {
