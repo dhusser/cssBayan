@@ -20,7 +20,7 @@
 .main__title {
   margin: 0;
   padding: min(max(1.25vw, 8px), 24px);
-  font-size: min(max(3.3vw, 12px), 64px);
+  font-size: min(max(3.3vw, 48px), 64px);
   text-align: center;
 }
 
@@ -37,35 +37,34 @@
   padding: min(max(1.25vw, 8px), 24px);
   background-color: #FFFFFF;
   border-radius: min(max(1.25vw, 8px), 24px);
+  border: dotted 12px #FFFFFF;
 }
 
-.active:checked+.mem__description {
-  height: min(max(42.18vw, 100%), 810px);
-  opacity: 1;
-  transition: all .5s ease-in;
-}
-
-.active:checked+.mem__title {
-  color: #0767F9;
-  border: dotted 12px #0767F9;
-  border-radius: min(max(1.25vw, 8px), 24px);
-  transition: .5s;
-}
 
 
 .mem__title {
   width: 100%;
   padding: min(max(1.25vw, 8px), 24px);
   font-size: min(max(2.18vw, 20px), 42px);
-  border: dotted 12px #FFFFFF;
   transition: .4s;
+  background-size: min(max(2.18vw, 20px), 42px) min(max(2.18vw, 20px), 42px);
+  background-repeat: no-repeat;
+  background-position: right center;
 }
 
-.active:checked .active__status {
-  content:url("http://imgur.com/SZ8Cm.jpg");
-  width: min(max(2.18vw, 20px), 42px);
-  height: min(max(2.18vw, 20px), 42px);
-  border: solid 1px red;
+.active {
+  display: none;
+}
+
+.active:checked+.mem__title {
+  color: #0767F9;
+  transition: .5s;
+
+}
+
+.active:checked+.mem {
+  border-color: #0767F9;
+  border-radius: min(max(1.25vw, 8px), 24px);
 }
 
 .mem__description {
@@ -76,14 +75,24 @@
   transition: all .4s ease-out;
   overflow: hidden;
   opacity: 0;
-  border: dotted 12px #798caa;
+  border: dotted 12px #FFFFFF;
   border-radius: min(max(1.25vw, 8px), 24px);
 }
 
+.mem__description:active {
+  border-color: #798caa;
+}
+
+.active:checked~.mem__description {
+  height: min(max(42.18vw, 100%), 810px);
+  opacity: 1;
+  transition: all .5s ease-in;
+}
 
 .mem__phrase {
   padding: min(max(1.25vw, 8px), 24px);
   font-size: min(max(2.18vw, 20px), 42px);
+  font-weight: 700;
 }
 
 .mem__image {
@@ -93,12 +102,15 @@
   text-align: center;
 }
 
-.mem:active>.mem__image {
-  
-}
+.mem:active>.mem__image {}
+
 
 
 @media (min-width: 1920px) {
+  .mems:hover {
+    cursor: pointer;
+  }
+
   .mem:hover>.mem__description {
     height: min(max(42.18vw, 100%), 810px);
     opacity: 1;
@@ -107,9 +119,16 @@
 
   .mems:hover .mem__title {
     color: #0767F9;
-    border-color: #0767F9;
-    border-radius: min(max(1.25vw, 8px), 24px);
     transition: .5s;
-    cursor: pointer;
+    background-image: url(./assets/svg/check.svg);
+  }
+
+  .mems:hover .active:checked~.mem__title {
+    background-image: url(./assets/svg/cross.svg);
+  }
+
+  .mems:hover .mem:hover .mem__title {
+    transition: .5s;
+    background-image: url(./assets/svg/cross.svg);
   }
 }
