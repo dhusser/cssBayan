@@ -53,7 +53,7 @@ html::-webkit-scrollbar {
 .mem__title {
   width: 100%;
   font-size: min(max(4vw, 2rem), 4rem);
-  transition: .4s;
+  transition: .3s;
   background-size: min(max(4vw, 1.25rem), 2.625rem) min(max(4vw, 1.25rem), 2.625rem);
   background-repeat: no-repeat;
   background-position: right center;
@@ -65,7 +65,7 @@ html::-webkit-scrollbar {
 
 .active:checked+.mem__title {
   color: #0767F9;
-  transition: .5s;
+  transition: .3s;
 
 }
 
@@ -79,7 +79,7 @@ html::-webkit-scrollbar {
   flex-flow: column nowrap;
   align-items: center;
   height: 0;
-  transition: all 1s ease-out;
+  transition: all .3s ease-out;
   overflow: hidden;
   opacity: 0;
   border: dotted 12px #FFFFFF;
@@ -90,10 +90,15 @@ html::-webkit-scrollbar {
   border-color: #798caa;
 }
 
+.mem:has(.mem__description:active) .mem__title {
+  color: #798caa;
+  background-size: min(max(5vw, 1.75rem), 3.125rem) min(max(5vw, 1.75rem), 3.125rem);
+}
+
 .active:checked~.mem__description {
   height: min(max(42.18vw, 100%), 42.18vw);
   opacity: 1;
-  transition: all 1.5s ease-in;
+  transition: all .4s ease-in;
 }
 
 .mem__phrase {
@@ -125,12 +130,12 @@ html::-webkit-scrollbar {
   .mem:hover>.mem__description {
     height: min(max(42.18vw, 100%), 42.18vw);
     opacity: 1;
-    transition: all .5s ease-in;
+    transition: all .4s ease-in;
   }
 
   .mems:hover .mem__title {
     color: #0767F9;
-    transition: .5s;
+    transition: .4s;
     background-image: url(./assets/svg/check.svg);
   }
 
@@ -139,7 +144,7 @@ html::-webkit-scrollbar {
   }
 
   .mems:hover .mem:hover .mem__title {
-    transition: .5s;
+    transition: .4s;
     background-image: url(./assets/svg/cross.svg);
   }
 }
