@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow: auto;
+}
+
+html::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.body {
+  background-color: #92B6D0;
+  padding: min(max(1.25vw, 1rem), 1.5rem);
+  max-width: 100vw;
+}
+
+.main {
+  margin: 0 auto;
+  max-width: 1200px;
+  background-color: #0767F9;
+  border-radius: min(max(1.25vw, .5rem), 1.5rem);
+}
+
+.main__title {
+  margin: 0;
+  padding: min(max(4vw, 1.5rem), 2.5rem);
+  font-size: min(max(6vw, 4rem), 6rem);
+  text-align: center;
+}
+
+.mems {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  gap: min(3vw, 50px);
+  padding: min(max(1.25vw, .5rem), 1.5rem);
+  border-radius: min(max(1.25vw, .5rem), 1.5rem);
+}
+
+.mem {
+  padding: min(max(1.25vw, .5rem), 1.5rem);
+  background-color: #FFFFFF;
+  border-radius: min(max(1.25vw, .5rem), 1.5rem);
+  border: dotted 12px #FFFFFF;
+}
+
+
+
+.mem__title {
+  display: block;
+  width: 100%;
+  font-size: min(max(4vw, 2rem), 4rem);
+  font-weight: 700;
+  transition: .3s;
+  background-size: min(max(4vw, 1.25rem), 2.625rem) min(max(4vw, 1.25rem), 2.625rem);
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.active {
+  display: none;
+}
+
+.active:checked+.mem__title {
+  color: #0767F9;
+  transition: .3s;
+
+}
+
+.active:checked+.mem {
+  border-color: #0767F9;
+  border-radius: min(max(1.25vw, .5rem), 1.5rem);
+}
+
+.mem__description {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  height: 0;
+  transition: all .3s ease-out;
+  overflow: hidden;
+  opacity: 0;
+  border: dotted 12px #FFFFFF;
+  border-radius: min(max(1.25vw, .5rem), 1.5rem);
+}
+
+.mem__description:active {
+  border-color: #798caa;
+}
+
+.mem__description:active .mem__phrase {
+  color: #0767F9;
+  transition: all .4s ease-in;
+}
+
+.mem:has(.mem__description:active) .mem__title {
+  color: #798caa;
+  background-size: min(max(5vw, 1.75rem), 3.125rem) min(max(5vw, 1.75rem), 3.125rem);
+  transition: all .4s ease-in;
+}
+
+.active:checked~.mem__description {
+  height: min(max(42.18vw, 100%), 42.18vw);
+  opacity: 1;
+  transition: all .4s ease-in;
+}
+
+.mem__phrase {
+  padding: min(max(1.25vw, .5rem), 1.5rem);
+  font-size: min(max(3vw, 2rem), 3.5rem);
+  font-weight: 700;
+  transition: all .3s ease-out;
+}
+
+.mem__image {
+  padding: min(max(1.25vw, .5rem), 1.5rem);
+  max-width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+@media (hover: hover), (min-width: 1920px) {
+  .mems:hover {
+    cursor: pointer;
+  }
+
+  .mem:hover {
+    cursor: pointer;
+  }
+
+  .mem:hover>.mem__description {
+    height: min(max(42.18vw, 100%), 42.18vw);
+    opacity: 1;
+    transition: all .4s ease-in;
+  }
+
+  .mems:hover .mem__title {
+    color: #0767F9;
+    transition: .4s;
+    background-image: url(./assets/svg/check.svg);
+  }
+
+  .mems:hover .active:checked~.mem__title {
+    background-image: url(./assets/svg/cross.svg);
+  }
+
+  .mems:hover .mem:hover .mem__title {
+    transition: .4s;
+    background-image: url(./assets/svg/cross.svg);
+  }
+}
