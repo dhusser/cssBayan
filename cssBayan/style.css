@@ -13,7 +13,7 @@ html::-webkit-scrollbar {
 }
 
 .body {
-  background-color: #0767F9;
+  background-color: #92B6D0;
   padding: min(max(1.25vw, 1rem), 1.5rem);
   max-width: 100vw;
 }
@@ -21,7 +21,7 @@ html::-webkit-scrollbar {
 .main {
   margin: 0 auto;
   max-width: 1200px;
-  background-color: #92B6D0;
+  background-color: #0767F9;
   border-radius: min(max(1.25vw, .5rem), 1.5rem);
 }
 
@@ -90,9 +90,15 @@ html::-webkit-scrollbar {
   border-color: #798caa;
 }
 
+.mem__description:active .mem__phrase {
+  color: #0767F9;
+  transition: all .4s ease-in;
+}
+
 .mem:has(.mem__description:active) .mem__title {
   color: #798caa;
   background-size: min(max(5vw, 1.75rem), 3.125rem) min(max(5vw, 1.75rem), 3.125rem);
+  transition: all .4s ease-in;
 }
 
 .active:checked~.mem__description {
@@ -105,6 +111,7 @@ html::-webkit-scrollbar {
   padding: min(max(1.25vw, .5rem), 1.5rem);
   font-size: min(max(3vw, 2rem), 3.5rem);
   font-weight: 700;
+  transition: all .3s ease-out;
 }
 
 .mem__image {
@@ -114,11 +121,7 @@ html::-webkit-scrollbar {
   text-align: center;
 }
 
-.mem:active>.mem__image {}
-
-
-
-@media (min-width: 1920px) {
+@media (hover: hover), (min-width: 1920px) {
   .mems:hover {
     cursor: pointer;
   }
