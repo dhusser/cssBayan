@@ -51,8 +51,10 @@ html::-webkit-scrollbar {
 
 
 .mem__title {
+  display: block;
   width: 100%;
   font-size: min(max(4vw, 2rem), 4rem);
+  font-weight: 700;
   transition: .3s;
   background-size: min(max(4vw, 1.25rem), 2.625rem) min(max(4vw, 1.25rem), 2.625rem);
   background-repeat: no-repeat;
